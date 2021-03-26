@@ -2,7 +2,11 @@
   <div id="app">
     <h1>Parent: {{carName}}</h1>
 
-    <app-car v-for="en of 1" :carName="carName" :car-year="carYear"/>
+    <app-car v-for="en of 1"
+             :carName="carName"
+             :car-year="carYear"
+             @nameChanged="carName = 'Mazda'"
+    />
   </div>
 </template>
 
