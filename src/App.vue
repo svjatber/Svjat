@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <h1>{{ message}}</h1>
-    <h1>{{message2}}</h1>
+    <h1>Parent: {{carName}}</h1>
 
-    <app-car v-for="enem of 5"/>
+    <app-car v-for="en of 1" :carName="carName" :car-year="carYear"/>
   </div>
 </template>
 
 <script>
 import Car from './Car'
+
 export default {
   data () {
     return {
-      message: 'hello',
-      message2: 'cool'
+      carName: 'Ford from parent',
+      carYear: 2015
     }
   },
   components:{
@@ -21,7 +21,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

@@ -1,22 +1,14 @@
 <template>
-    <div>
+    <div class="car">
       <h2>Name: {{carName}} </h2>
-      <p>{{year}}</p>
+      <p>{{carYear}}</p>
     </div>
 </template>
 
 <script>
-
 export default {
-  data(){
-    return{
-      carName: 'Ford',
-      year: '2015'
-    }
-  }
+  props: ['carName', 'carYear']
 }
 </script>
 
-<style scoped>
 
-</style>

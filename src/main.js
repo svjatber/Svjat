@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import App from './App'
-import Car from './Car'
-
-// Vue.component('app-car', Car)
+import './car.css'
 
 new Vue({
   el: '#app',
