@@ -12,7 +12,7 @@ import Car from './Car'
 export default {
   data () {
     return {
-      carName: 'Ford from parent',
+      carName: 'Ford',
       carYear: 2015
     }
   },
