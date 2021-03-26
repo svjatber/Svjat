@@ -6,6 +6,7 @@
              :carName="carName"
              :car-year="carYear"
              @nameChanged="carName = 'Mazda'"
+             :changeFunc="changeNameToAudi"
     />
   </div>
 </template>
@@ -22,6 +23,11 @@ export default {
   },
   components:{
     appCar: Car
+  },
+  methods:{
+    changeNameToAudi(){
+      this.carName = 'Audi'
+    }
   }
 }
 </script>
