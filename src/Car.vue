@@ -1,7 +1,10 @@
 <template>
-    <div class="car">
-      <h2>Car</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, enim?</p>
+    <div>
+      <slot name="title"></slot>
+
+      <hr>
+
+      <slot name="text"></slot>
     </div>
 </template>
 
@@ -13,8 +16,8 @@ export default {
 </script>
 
 <style scoped>
-  h2{
-    color: red;
+  h1{
+    color: green;
   }
 
 </style>

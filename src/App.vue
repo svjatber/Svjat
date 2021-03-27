@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <h1>Parent</h1>
-    <appCounter/>
-    <app-car />
+    <app-car>
+      <h1 slot="title">{{carName}}</h1>
+      <p slot="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, maxime?</p>
+    </app-car>
   </div>
 </template>
 
@@ -10,9 +11,20 @@
 import Car from './Car'
 import Counter from './Counter'
 export default {
+  data(){
+    return{
+      carName: 'good'
+    }
+  },
   components:{
     appCar: Car,
     appCounter: Counter
   }
 }
 </script>
+
+<style scoped>
+  h1{
+    color: red;
+  }
+</style>
