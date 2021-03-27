@@ -1,21 +1,21 @@
 <template>
-    <h2>Counter: {{counter}}</h2>
+  <div>
+    <h2>Counter</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, enim?</p>
+  </div>
 </template>
 
 <script>
-import {eventEmitter} from "./main";
+
 
 export default {
-  data(){
-    return{
-      counter: 0
-    }
-  },
-  created() {
-    eventEmitter.$on('counterUpdated', (p)=>{
-      this.counter += p
-    })
-  }
+
 }
 </script>
+
+<style scoped>
+  div{
+    border: 1px solid #000000 ;
+  }
+</style>
 
