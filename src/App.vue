@@ -1,9 +1,13 @@
 <template>
   <div>
     <h2>{{title}}</h2>
-    <h2>{{title | lowercase}}</h2>
-    <h2>{{title | uppercase }}</h2>
-    <h2>{{title | uppercase | lowercase}}</h2>
+
+    <input type="text" v-model="searchName">
+
+    <ul>
+      <li v-for="name of filteredNames">{{name}}</li>
+    </ul>
+
   </div>
 </template>
 
@@ -12,7 +16,16 @@
 export default {
   data(){
     return {
-      title: 'Parent'
+      title: 'Parent',
+      names:['Vlad', 'Max', 'Elena', 'Igor'],
+      searchName: ''
+    }
+  },
+  computed:{
+    filteredNames(){
+      return this.names.filter(name=>{
+        return name.toLowerCase().indexOf(this.searchName) !== -1
+      })
     }
   },
   filters:{
