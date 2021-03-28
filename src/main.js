@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import App from './App'
-import Car from './Car'
+import ColorDirective from './color'
 
-// Vue.component('app-car', Car)
+Vue.directive('colored', ColorDirective)
+
 
 new Vue({
   el: '#app',
