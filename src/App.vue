@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-      <h2 v-colored="color">{{title}}</h2>
-      <button @click="color = 'red'">Red</button>
+      <h2 v-colored:background="'red'">{{title}}</h2>
+      <h2 v-colored:color="'blue'">{{title}}</h2>
 
   </div>
 </template>
@@ -11,8 +11,7 @@
 export default {
   data(){
     return {
-      title: 'Parent',
-      color: 'green'
+      title: 'Parent'
     }
   }
 }
