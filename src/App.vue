@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-      <h2 v-colored v-if="visible">{{title}}</h2>
-      <button @click="visible = !visible">click</button>
-      <button @click="title = 'New title'">click</button>
+      <h2 v-colored="color">{{title}}</h2>
+      <button @click="color = 'red'">Red</button>
+
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   data(){
     return {
       title: 'Parent',
-      visible: true,
+      color: 'green'
     }
   }
 }

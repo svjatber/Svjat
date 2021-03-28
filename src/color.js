@@ -1,18 +1,8 @@
 export default {
     bind(el, bindings, vnode){
-      el.style.color = 'blue'
-      console.log('bind')
+      el.style.color = bindings.value
     },
-    inserted(el, bindings, vnode){
-      console.log('inserted')
-    },
-    update(el, bindings, vnode, oldVnode){
-      console.log('update')
-    },
-    componentUpdated(el, bindings, vnode, oldVnode){
-      console.log('componentUpdate')
-    },
-    unbind(){
-      console.log('unbind')
+    update(el, bindings, vnode){
+      el.style.color = bindings.value
     }
 }
