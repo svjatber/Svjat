@@ -2,20 +2,20 @@
   <div>
     <h2>Form inputs</h2>
     <label>
-      <input type="checkbox" value="inst" v-model="social"> Instagram
+      <input type="radio" value="inst" v-model="social"> Instagram
     </label>
     <label>
-      <input type="checkbox" value="vk" v-model="social" checked> VK
+      <input type="radio" value="vk" v-model="social" checked> VK
     </label>
     <label>
-      <input type="checkbox" value="fb" v-model="social"> FB
+      <input type="radio" value="fb" v-model="social"> FB
     </label>
 
 
   <hr>
-  <ul>
-    <li v-for="soc of social">{{soc}}</li>
-  </ul>
+
+    <p>{{social}}</p>
+
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
   data(){
     return {
       title: 'Parent',
-      social:['vk']
+      social: 'inst'
     }
   }
 }
