@@ -1,7 +1,10 @@
 export default {
     bind(el, bindings, vnode){
-      const arg = bindings.arg
-      console.log(arg)
-      el.style[arg] = bindings.value
-    },
+      if(bindings.modifiers['font']) el.style.fontSize = '30px'
+      let delay = 0
+      if(bindings.modifiers['delay']) delay = 2000
+      setTimeout(()=>{
+        el.style[bindings.arg] = bindings.value
+      }, delay)
+    }
 }
