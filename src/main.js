@@ -5,6 +5,12 @@ Vue.filter('uppercase', (value)=>{
   return value.toUpperCase()
 })
 
+Vue.mixin({
+  showCreate() {
+    console.log('show000')
+  }
+})
+
 new Vue({
   el: '#app',
   render: h => h(App)
