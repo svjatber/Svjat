@@ -7,9 +7,13 @@
             <input type="email"
                    id="email"
                    class="form-control"
+                   :class="{'is-invalid': $v.email.$error}"
                    @blur="$v.email.$touch()"
                    v-model="email"
             >
+            <div class="invalid-feedback" v-if="!$v.email.uniqEmail">
+              This email is already exists
+            </div>
           </label>
           <div class="pt-3">
             <label for="password"> Password
@@ -64,8 +68,15 @@ export default {
   validations:{
     email:{
       required,
-      email
-
+      email,
+      uniqEmail: function(newEmail){
+        return new Promise((resolve, reject)=>{
+          setTimeout(()=>{
+            const value = newEmail != 'test@mail.ru'
+            resolve(value)
+          }, 500)
+        })
+      }
     },
     password:{
       minLength: minLength(6)
