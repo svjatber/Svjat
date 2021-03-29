@@ -1,45 +1,31 @@
 <template>
   <div>
-    <h2>Form inputs</h2>
-    <input type="number" v-model.number="age">
-
-    <p>{{age}}</p>
-
-    <hr>
-
-    <input type="text" v-model.trim="textInput">
-    <p>{{textInput}}</p>
+   <h2>Contols</h2>
+    <app-onoff  v-model="switched"/>
+   <div>
+     <h3 v-if="switched">Component is enabled</h3>
+     <h3 v-else>Component disabled</h3>
+   </div>
   </div>
 </template>
 
 <script>
+import OnOff from "./OnOff";
+
 export default {
   data(){
     return {
-        age: 20,
-        textInput: ''
-
+      switched: false
     }
   },
-  watch:{
-    age(value){
-      console.log(value)
-    },
-    textInput(v){
-      console.log(v)
-    }
+  components: {
+    appOnoff: OnOff
   }
 }
 </script>
 
 <style scoped>
-  textarea{
-    width: 200px;
-    height: 400px;
-  }
-  p{
-    white-space: pre;
-  }
+
 </style>
 
 
