@@ -1,31 +1,35 @@
 <template>
   <div>
-   <h2>Contols</h2>
-    <app-onoff  v-model="switched"/>
-   <div>
-     <h3 v-if="switched">Component is enabled</h3>
-     <h3 v-else>Component disabled</h3>
-   </div>
+    <div class="container">
+      <div class="pt-3">
+        <div class="form-group">
+          <label for="email"> Email
+            <input type="email"
+                   id="email"
+                   class="form-control"
+                   v-model="email"
+            >
+          </label>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import OnOff from "./OnOff";
-
 export default {
-  data(){
+  data() {
     return {
-      switched: false
+      email: ''
     }
-  },
-  components: {
-    appOnoff: OnOff
   }
 }
 </script>
 
 <style scoped>
+  div{
 
+  }
 </style>
 
 
