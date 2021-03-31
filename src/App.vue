@@ -3,50 +3,57 @@
     <div class="container">
       <div class="pt-3">
         <div class="form-group">
-          <label for="email"> Email
-            <input type="email"
-                   id="email"
-                   class="form-control"
-                   :class="{'is-invalid': $v.email.$error}"
-                   @blur="$v.email.$touch()"
-                   v-model="email"
-            >
-            <div class="invalid-feedback" v-if="!$v.email.uniqEmail">
-              This email is already exists
+          <form @submit.prevent="onSubmit">
+            <label for="email"> Email
+              <input type="email"
+                     id="email"
+                     class="form-control"
+                     :class="{'is-invalid': $v.email.$error}"
+                     @blur="$v.email.$touch()"
+                     v-model="email"
+              >
+              <div class="invalid-feedback" v-if="!$v.email.uniqEmail">
+                This email is already exists
+              </div>
+            </label>
+            <div class="pt-3">
+              <label for="password"> Password
+                <input type="password"
+                       id="password"
+                       class="form-control"
+                       :class="{'is-invalid': $v.password.$error}"
+                       @blur="$v.password.$touch()"
+                       v-model="password"
+                >
+                <div class="invalid-feedback" v-if="!$v.password.minLength">
+                  Please enter correct password({{password.length}})
+                </div>
+              </label>
             </div>
-          </label>
-          <div class="pt-3">
-            <label for="password"> Password
-              <input type="password"
-                     id="password"
-                     class="form-control"
-                     :class="{'is-invalid': $v.password.$error}"
-                     @blur="$v.password.$touch()"
-                     v-model="password"
-              >
-              <div class="invalid-feedback" v-if="!$v.password.minLength">
-                Please enter correct password({{password.length}})
-              </div>
-            </label>
-          </div>
-          <div class="pt-3">
-            <label for="confirm"> Confirm password
-              <input type="password"
-                     id="confirm"
-                     class="form-control"
-                     :class="{'is-invalid': $v.confirm.$error}"
-                     @blur="$v.confirm.$touch()"
-                     v-model="confirm"
-              >
-              <div class="invalid-feedback" v-if="!$v.confirm.sameAs">
-                Not same password
-              </div>
-            </label>
-          </div>
-        </div>
-        <pre>{{$v}}</pre>
-      </div>
+            <div class="pt-3">
+              <label for="confirm"> Confirm password
+                <input type="password"
+                       id="confirm"
+                       class="form-control"
+                       :class="{'is-invalid': $v.confirm.$error}"
+                       @blur="$v.confirm.$touch()"
+                       v-model="confirm"
+                >
+                <div class="invalid-feedback" v-if="!$v.confirm.sameAs">
+                  Not same password
+                </div>
+              </label>
+            </div>
+            <button
+              class="btn btn-success"
+              type="submit"
+              :disabled="$v.$invalid"
+            >Submit</button>
+          </form>
+      <pre>{{$v}}</pre>
     </div>
+  </div>
+  </div>
   </div>
 </template>
 
@@ -63,6 +70,14 @@ export default {
       email: '',
       password: '',
       confirm: ''
+    }
+  },
+  methods:{
+    onSubmit(){
+      console.log(this.email);
+      console.log(this.password);
+      this.email = ''
+      this.password = ''
     }
   },
   validations:{
